@@ -1,0 +1,1458 @@
+////////////////////////////////////////
+// INTERNAL VARIABLES
+////////////////////////////////////////
+
+$_black-text: (
+  'color': #000,
+  'emphasis-alpha': (
+    'high': .87,
+    'medium': .6,
+    'disabled': .38
+  )
+);
+
+$_white-text: (
+  'color': #fff,
+  'emphasis-alpha': (
+    'high': .92,
+    'medium': .75,
+    'disabled': .5
+  )
+);
+
+$_palettes: (
+  'red': (
+    50: (
+      'primary': ( 'color': #ffebee, 'text': $_black-text ),
+      'light': ( 'color': #fff, 'text': $_black-text ),
+      'dark': ( 'color': #ccb9bc, 'text': $_black-text )
+    ),
+    100: (
+      'primary': ( 'color': #ffcdd2, 'text': $_black-text ),
+      'light': ( 'color': #fff, 'text': $_black-text ),
+      'dark': ( 'color': #cb9ca1, 'text': $_black-text )
+    ),
+    200: (
+      'primary': ( 'color': #ef9a9a, 'text': $_black-text ),
+      'light': ( 'color': #ffcccb, 'text': $_black-text ),
+      'dark': ( 'color': #ba6b6c, 'text': $_black-text )
+    ),
+    300: (
+      'primary': ( 'color': #e57373, 'text': $_black-text ),
+      'light': ( 'color': #ffa4a2, 'text': $_black-text ),
+      'dark': ( 'color': #af4448, 'text': $_white-text )
+    ),
+    400: (
+      'primary': ( 'color': #ef5350, 'text': $_black-text ),
+      'light': ( 'color': #ff867c, 'text': $_black-text ),
+      'dark': ( 'color': #b61827, 'text': $_white-text )
+    ),
+    500: (
+      'primary': ( 'color': #f44336, 'text': $_black-text ),
+      'light': ( 'color': #ff7961, 'text': $_black-text ),
+      'dark': ( 'color': #ba000d, 'text': $_white-text )
+    ),
+    600: (
+      'primary': ( 'color': #e53935, 'text': $_black-text ),
+      'light': ( 'color': #ff6f60, 'text': $_black-text ),
+      'dark': ( 'color': #ab000d, 'text': $_white-text )
+    ),
+    700: (
+      'primary': ( 'color': #d32f2f, 'text': $_white-text ),
+      'light': ( 'color': #ff6659, 'text': $_black-text ),
+      'dark': ( 'color': #9a0007, 'text': $_white-text )
+    ),
+    800: (
+      'primary': ( 'color': #c62828, 'text': $_white-text ),
+      'light': ( 'color': #ff5f52, 'text': $_black-text ),
+      'dark': ( 'color': #8e0000, 'text': $_white-text )
+    ),
+    900: (
+      'primary': ( 'color': #b71c1c, 'text': $_white-text ),
+      'light': ( 'color': #f05545, 'text': $_black-text ),
+      'dark': ( 'color': #7f0000, 'text': $_white-text )
+    ),
+    A100: (
+      'primary': ( 'color': #ff8a80, 'text': $_black-text ),
+      'light': ( 'color': #ffbcaf, 'text': $_black-text ),
+      'dark': ( 'color': #c85a54, 'text': $_black-text )
+    ),
+    A200: (
+      'primary': ( 'color': #ff5252, 'text': $_black-text ),
+      'light': ( 'color': #ff867f, 'text': $_black-text ),
+      'dark': ( 'color': #c50e29, 'text': $_white-text )
+    ),
+    A400: (
+      'primary': ( 'color': #ff1744, 'text': $_black-text ),
+      'light': ( 'color': #ff616f, 'text': $_black-text ),
+      'dark': ( 'color': #c4001d, 'text': $_white-text )
+    ),
+    A700: (
+      'primary': ( 'color': #d50000, 'text': $_white-text ),
+      'light': ( 'color': #ff5131, 'text': $_black-text ),
+      'dark': ( 'color': #9b0000, 'text': $_white-text )
+    )
+  ),
+  'pink': (
+    50: (
+      'primary': ( 'color': #fce4ec, 'text': $_black-text ),
+      'light': ( 'color': #fff, 'text': $_black-text ),
+      'dark': ( 'color': #c9b2ba, 'text': $_black-text )
+    ),
+    100: (
+      'primary': ( 'color': #f8bbd0, 'text': $_black-text ),
+      'light': ( 'color': #fef, 'text': $_black-text ),
+      'dark': ( 'color': #c48b9f, 'text': $_black-text )
+    ),
+    200: (
+      'primary': ( 'color': #f48fb1, 'text': $_black-text ),
+      'light': ( 'color': #ffc1e3, 'text': $_black-text ),
+      'dark': ( 'color': #bf5f82, 'text': $_black-text )
+    ),
+    300: (
+      'primary': ( 'color': #f06292, 'text': $_black-text ),
+      'light': ( 'color': #ff94c2, 'text': $_black-text ),
+      'dark': ( 'color': #ba2d65, 'text': $_white-text )
+    ),
+    400: (
+      'primary': ( 'color': #ec407a, 'text': $_black-text ),
+      'light': ( 'color': #ff77a9, 'text': $_black-text ),
+      'dark': ( 'color': #b4004e, 'text': $_white-text )
+    ),
+    500: (
+      'primary': ( 'color': #e91e63, 'text': $_black-text ),
+      'light': ( 'color': #ff6090, 'text': $_black-text ),
+      'dark': ( 'color': #b0003a, 'text': $_white-text )
+    ),
+    600: (
+      'primary': ( 'color': #d81b60, 'text': $_white-text ),
+      'light': ( 'color': #ff5c8d, 'text': $_black-text ),
+      'dark': ( 'color': #a00037, 'text': $_white-text )
+    ),
+    700: (
+      'primary': ( 'color': #c2185b, 'text': $_white-text ),
+      'light': ( 'color': #fa5788, 'text': $_black-text ),
+      'dark': ( 'color': #8c0032, 'text': $_white-text )
+    ),
+    800: (
+      'primary': ( 'color': #ad1457, 'text': $_white-text ),
+      'light': ( 'color': #e35183, 'text': $_black-text ),
+      'dark': ( 'color': #78002e, 'text': $_white-text )
+    ),
+    900: (
+      'primary': ( 'color': #880e4f, 'text': $_white-text ),
+      'light': ( 'color': #bc477b, 'text': $_white-text ),
+      'dark': ( 'color': #560027, 'text': $_white-text )
+    ),
+    A100: (
+      'primary': ( 'color': #ff80ab, 'text': $_black-text ),
+      'light': ( 'color': #ffb2dd, 'text': $_black-text ),
+      'dark': ( 'color': #c94f7c, 'text': $_black-text )
+    ),
+    A200: (
+      'primary': ( 'color': #ff4081, 'text': $_black-text ),
+      'light': ( 'color': #ff79b0, 'text': $_black-text ),
+      'dark': ( 'color': #c60055, 'text': $_white-text )
+    ),
+    A400: (
+      'primary': ( 'color': #f50057, 'text': $_black-text ),
+      'light': ( 'color': #ff5983, 'text': $_black-text ),
+      'dark': ( 'color': #bb002f, 'text': $_white-text )
+    ),
+    A700: (
+      'primary': ( 'color': #c51162, 'text': $_white-text ),
+      'light': ( 'color': #fd558f, 'text': $_black-text ),
+      'dark': ( 'color': #8e0038, 'text': $_white-text )
+    )
+  ),
+  'purple': (
+    50: (
+      'primary': ( 'color': #f3e5f5, 'text': $_black-text ),
+      'light': ( 'color': #ffffff, 'text': $_black-text ),
+      'dark': ( 'color': #c0b3c2, 'text': $_black-text )
+    ),
+    100: (
+      'primary': ( 'color': #e1bee7, 'text': $_black-text ),
+      'light': ( 'color': #fff1ff, 'text': $_black-text ),
+      'dark': ( 'color': #af8eb5, 'text': $_black-text )
+    ),
+    200: (
+      'primary': ( 'color': #ce93d8, 'text': $_black-text ),
+      'light': ( 'color': #ffc4ff, 'text': $_black-text ),
+      'dark': ( 'color': #9c64a6, 'text': $_black-text )
+    ),
+    300: (
+      'primary': ( 'color': #ba68c8, 'text': $_black-text ),
+      'light': ( 'color': #ee98fb, 'text': $_black-text ),
+      'dark': ( 'color': #883997, 'text': $_white-text )
+    ),
+    400: (
+      'primary': ( 'color': #ab47bc, 'text': $_black-text ),
+      'light': ( 'color': #df78ef, 'text': $_black-text ),
+      'dark': ( 'color': #790e8b, 'text': $_white-text )
+    ),
+    500: (
+      'primary': ( 'color': #9c27b0, 'text': $_white-text ),
+      'light': ( 'color': #d05ce3, 'text': $_black-text ),
+      'dark': ( 'color': #6a0080, 'text': $_white-text )
+    ),
+    600: (
+      'primary': ( 'color': #8e24aa, 'text': $_white-text ),
+      'light': ( 'color': #c158dc, 'text': $_black-text ),
+      'dark': ( 'color': #5c007a, 'text': $_white-text )
+    ),
+    700: (
+      'primary': ( 'color': #7b1fa2, 'text': $_white-text ),
+      'light': ( 'color': #ae52d4, 'text': $_black-text ),
+      'dark': ( 'color': #4a0072, 'text': $_white-text )
+    ),
+    800: (
+      'primary': ( 'color': #6a1b9a, 'text': $_white-text ),
+      'light': ( 'color': #9c4dcc, 'text': $_white-text ),
+      'dark': ( 'color': #38006b, 'text': $_white-text )
+    ),
+    900: (
+      'primary': ( 'color': #4a148c, 'text': $_white-text ),
+      'light': ( 'color': #7c43bd, 'text': $_white-text ),
+      'dark': ( 'color': #12005e, 'text': $_white-text )
+    ),
+    A100: (
+      'primary': ( 'color': #ea80fc, 'text': $_black-text ),
+      'light': ( 'color': #ffb2ff, 'text': $_black-text ),
+      'dark': ( 'color': #b64fc8, 'text': $_black-text )
+    ),
+    A200: (
+      'primary': ( 'color': #e040fb, 'text': $_black-text ),
+      'light': ( 'color': #ff79ff, 'text': $_black-text ),
+      'dark': ( 'color': #aa00c7, 'text': $_white-text )
+    ),
+    A400: (
+      'primary': ( 'color': #d500f9, 'text': $_black-text ),
+      'light': ( 'color': #ff5bff, 'text': $_black-text ),
+      'dark': ( 'color': #9e00c5, 'text': $_white-text )
+    ),
+    A700: (
+      'primary': ( 'color': #aa00ff, 'text': $_white-text ),
+      'light': ( 'color': #e254ff, 'text': $_black-text ),
+      'dark': ( 'color': #7200ca, 'text': $_white-text )
+    )
+  ),
+  'deep-purple': (
+    50: (
+      'primary': ( 'color': #ede7f6, 'text': $_black-text ),
+      'light': ( 'color': #ffffff, 'text': $_black-text ),
+      'dark': ( 'color': #bbb5c3, 'text': $_black-text )
+    ),
+    100: (
+      'primary': ( 'color': #d1c4e9, 'text': $_black-text ),
+      'light': ( 'color': #fff7ff, 'text': $_black-text ),
+      'dark': ( 'color': #a094b7, 'text': $_black-text )
+    ),
+    200: (
+      'primary': ( 'color': #b39ddb, 'text': $_black-text ),
+      'light': ( 'color': #e6ceff, 'text': $_black-text ),
+      'dark': ( 'color': #836fa9, 'text': $_black-text )
+    ),
+    300: (
+      'primary': ( 'color': #9575cd, 'text': $_black-text ),
+      'light': ( 'color': #c7a4ff, 'text': $_black-text ),
+      'dark': ( 'color': #65499c, 'text': $_white-text )
+    ),
+    400: (
+      'primary': ( 'color': #7e57c2, 'text': $_white-text ),
+      'light': ( 'color': #b085f5, 'text': $_black-text ),
+      'dark': ( 'color': #4d2c91, 'text': $_white-text )
+    ),
+    500: (
+      'primary': ( 'color': #673ab7, 'text': $_white-text ),
+      'light': ( 'color': #9a67ea, 'text': $_black-text ),
+      'dark': ( 'color': #320b86, 'text': $_white-text )
+    ),
+    600: (
+      'primary': ( 'color': #5e35b1, 'text': $_white-text ),
+      'light': ( 'color': #9162e4, 'text': $_black-text ),
+      'dark': ( 'color': #280680, 'text': $_white-text )
+    ),
+    700: (
+      'primary': ( 'color': #512da8, 'text': $_white-text ),
+      'light': ( 'color': #8559da, 'text': $_white-text ),
+      'dark': ( 'color': #140078, 'text': $_white-text )
+    ),
+    800: (
+      'primary': ( 'color': #4527a0, 'text': $_white-text ),
+      'light': ( 'color': #7953d2, 'text': $_white-text ),
+      'dark': ( 'color': #000070, 'text': $_white-text )
+    ),
+    900: (
+      'primary': ( 'color': #311b92, 'text': $_white-text ),
+      'light': ( 'color': #6746c3, 'text': $_white-text ),
+      'dark': ( 'color': #000063, 'text': $_white-text )
+    ),
+    A100: (
+      'primary': ( 'color': #b388ff, 'text': $_black-text ),
+      'light': ( 'color': #e7b9ff, 'text': $_black-text ),
+      'dark': ( 'color': #805acb, 'text': $_white-text )
+    ),
+    A200: (
+      'primary': ( 'color': #7c4dff, 'text': $_white-text ),
+      'light': ( 'color': #b47cff, 'text': $_black-text ),
+      'dark': ( 'color': #3f1dcb, 'text': $_white-text )
+    ),
+    A400: (
+      'primary': ( 'color': #651fff, 'text': $_white-text ),
+      'light': ( 'color': #a255ff, 'text': $_black-text ),
+      'dark': ( 'color': #0100ca, 'text': $_white-text )
+    ),
+    A700: (
+      'primary': ( 'color': #6200ea, 'text': $_white-text ),
+      'light': ( 'color': #9d46ff, 'text': $_black-text ),
+      'dark': ( 'color': #0a00b6, 'text': $_white-text )
+    )
+  ),
+  'indigo': (
+    50: (
+      'primary': ( 'color': #e8eaf6, 'text': $_black-text ),
+      'light': ( 'color': #ffffff, 'text': $_black-text ),
+      'dark': ( 'color': #b6b8c3, 'text': $_black-text )
+    ),
+    100: (
+      'primary': ( 'color': #c5cae9, 'text': $_black-text ),
+      'light': ( 'color': #f8fdff, 'text': $_black-text ),
+      'dark': ( 'color': #9499b7, 'text': $_black-text )
+    ),
+    200: (
+      'primary': ( 'color': #9fa8da, 'text': $_black-text ),
+      'light': ( 'color': #d1d9ff, 'text': $_black-text ),
+      'dark': ( 'color': #6f79a8, 'text': $_black-text )
+    ),
+    300: (
+      'primary': ( 'color': #7986cb, 'text': $_black-text ),
+      'light': ( 'color': #aab6fe, 'text': $_black-text ),
+      'dark': ( 'color': #49599a, 'text': $_white-text )
+    ),
+    400: (
+      'primary': ( 'color': #5c6bc0, 'text': $_white-text ),
+      'light': ( 'color': #8e99f3, 'text': $_black-text ),
+      'dark': ( 'color': #26418f, 'text': $_white-text )
+    ),
+    500: (
+      'primary': ( 'color': #3f51b5, 'text': $_white-text ),
+      'light': ( 'color': #757de8, 'text': $_black-text ),
+      'dark': ( 'color': #002984, 'text': $_white-text )
+    ),
+    600: (
+      'primary': ( 'color': #3949ab, 'text': $_white-text ),
+      'light': ( 'color': #6f74dd, 'text': $_black-text ),
+      'dark': ( 'color': #00227b, 'text': $_white-text )
+    ),
+    700: (
+      'primary': ( 'color': #303f9f, 'text': $_white-text ),
+      'light': ( 'color': #666ad1, 'text': $_white-text ),
+      'dark': ( 'color': #001970, 'text': $_white-text )
+    ),
+    800: (
+      'primary': ( 'color': #283593, 'text': $_white-text ),
+      'light': ( 'color': #5f5fc4, 'text': $_white-text ),
+      'dark': ( 'color': #001064, 'text': $_white-text )
+    ),
+    900: (
+      'primary': ( 'color': #1a237e, 'text': $_white-text ),
+      'light': ( 'color': #534bae, 'text': $_white-text ),
+      'dark': ( 'color': #000051, 'text': $_white-text )
+    ),
+    A100: (
+      'primary': ( 'color': #8c9eff, 'text': $_black-text ),
+      'light': ( 'color': #c0cfff, 'text': $_black-text ),
+      'dark': ( 'color': #5870cb, 'text': $_white-text )
+    ),
+    A200: (
+      'primary': ( 'color': #536dfe, 'text': $_black-text ),
+      'light': ( 'color': #8f9bff, 'text': $_black-text ),
+      'dark': ( 'color': #0043ca, 'text': $_white-text )
+    ),
+    A400: (
+      'primary': ( 'color': #3d5afe, 'text': $_white-text ),
+      'light': ( 'color': #8187ff, 'text': $_black-text ),
+      'dark': ( 'color': #0031ca, 'text': $_white-text )
+    ),
+    A700: (
+      'primary': ( 'color': #304ffe, 'text': $_white-text ),
+      'light': ( 'color': #7a7cff, 'text': $_black-text ),
+      'dark': ( 'color': #0026ca, 'text': $_white-text )
+    )
+  ),
+  'blue': (
+    50: (
+      'primary': ( 'color': #e3f2fd, 'text': $_black-text ),
+      'light': ( 'color': #ffffff, 'text': $_black-text ),
+      'dark': ( 'color': #b1bfca, 'text': $_black-text )
+    ),
+    100: (
+      'primary': ( 'color': #bbdefb, 'text': $_black-text ),
+      'light': ( 'color': #eeffff, 'text': $_black-text ),
+      'dark': ( 'color': #8aacc8, 'text': $_black-text )
+    ),
+    200: (
+      'primary': ( 'color': #90caf9, 'text': $_black-text ),
+      'light': ( 'color': #c3fdff, 'text': $_black-text ),
+      'dark': ( 'color': #5d99c6, 'text': $_black-text )
+    ),
+    300: (
+      'primary': ( 'color': #64b5f6, 'text': $_black-text ),
+      'light': ( 'color': #9be7ff, 'text': $_black-text ),
+      'dark': ( 'color': #2286c3, 'text': $_black-text )
+    ),
+    400: (
+      'primary': ( 'color': #42a5f5, 'text': $_black-text ),
+      'light': ( 'color': #80d6ff, 'text': $_black-text ),
+      'dark': ( 'color': #0077c2, 'text': $_white-text )
+    ),
+    500: (
+      'primary': ( 'color': #2196f3, 'text': $_black-text ),
+      'light': ( 'color': #6ec6ff, 'text': $_black-text ),
+      'dark': ( 'color': #0069c0, 'text': $_white-text )
+    ),
+    600: (
+      'primary': ( 'color': #1e88e5, 'text': $_black-text ),
+      'light': ( 'color': #6ab7ff, 'text': $_black-text ),
+      'dark': ( 'color': #005cb2, 'text': $_white-text )
+    ),
+    700: (
+      'primary': ( 'color': #1976d2, 'text': $_white-text ),
+      'light': ( 'color': #63a4ff, 'text': $_black-text ),
+      'dark': ( 'color': #004ba0, 'text': $_white-text )
+    ),
+    800: (
+      'primary': ( 'color': #1565c0, 'text': $_white-text ),
+      'light': ( 'color': #5e92f3, 'text': $_black-text ),
+      'dark': ( 'color': #003c8f, 'text': $_white-text )
+    ),
+    900: (
+      'primary': ( 'color': #0d47a1, 'text': $_white-text ),
+      'light': ( 'color': #5472d3, 'text': $_black-text ),
+      'dark': ( 'color': #002171, 'text': $_white-text )
+    ),
+    A100: (
+      'primary': ( 'color': #82b1ff, 'text': $_black-text ),
+      'light': ( 'color': #b6e3ff, 'text': $_black-text ),
+      'dark': ( 'color': #4d82cb, 'text': $_black-text )
+    ),
+    A200: (
+      'primary': ( 'color': #448aff, 'text': $_black-text ),
+      'light': ( 'color': #83b9ff, 'text': $_black-text ),
+      'dark': ( 'color': #005ecb, 'text': $_white-text )
+    ),
+    A400: (
+      'primary': ( 'color': #2979ff, 'text': $_black-text ),
+      'light': ( 'color': #75a7ff, 'text': $_black-text ),
+      'dark': ( 'color': #004ecb, 'text': $_white-text )
+    ),
+    A700: (
+      'primary': ( 'color': #2962ff, 'text': $_white-text ),
+      'light': ( 'color': #768fff, 'text': $_black-text ),
+      'dark': ( 'color': #0039cb, 'text': $_white-text )
+    )
+  ),
+  'light-blue': (
+    50: (
+      'primary': ( 'color': #e1f5fe, 'text': $_black-text ),
+      'light': ( 'color': #ffffff, 'text': $_black-text ),
+      'dark': ( 'color': #afc2cb, 'text': $_black-text )
+    ),
+    100: (
+      'primary': ( 'color': #b3e5fc, 'text': $_black-text ),
+      'light': ( 'color': #e6ffff, 'text': $_black-text ),
+      'dark': ( 'color': #82b3c9, 'text': $_black-text )
+    ),
+    200: (
+      'primary': ( 'color': #81d4fa, 'text': $_black-text ),
+      'light': ( 'color': #b6ffff, 'text': $_black-text ),
+      'dark': ( 'color': #4ba3c7, 'text': $_black-text )
+    ),
+    300: (
+      'primary': ( 'color': #4fc3f7, 'text': $_black-text ),
+      'light': ( 'color': #8bf6ff, 'text': $_black-text ),
+      'dark': ( 'color': #0093c4, 'text': $_black-text )
+    ),
+    400: (
+      'primary': ( 'color': #29b6f6, 'text': $_black-text ),
+      'light': ( 'color': #73e8ff, 'text': $_black-text ),
+      'dark': ( 'color': #0086c3, 'text': $_black-text )
+    ),
+    500: (
+      'primary': ( 'color': #03a9f4, 'text': $_black-text ),
+      'light': ( 'color': #67daff, 'text': $_black-text ),
+      'dark': ( 'color': #007ac1, 'text': $_white-text )
+    ),
+    600: (
+      'primary': ( 'color': #039be5, 'text': $_black-text ),
+      'light': ( 'color': #63ccff, 'text': $_black-text ),
+      'dark': ( 'color': #006db3, 'text': $_white-text )
+    ),
+    700: (
+      'primary': ( 'color': #0288d1, 'text': $_black-text ),
+      'light': ( 'color': #5eb8ff, 'text': $_black-text ),
+      'dark': ( 'color': #005b9f, 'text': $_white-text )
+    ),
+    800: (
+      'primary': ( 'color': #0277bd, 'text': $_white-text ),
+      'light': ( 'color': #58a5f0, 'text': $_black-text ),
+      'dark': ( 'color': #004c8c, 'text': $_white-text )
+    ),
+    900: (
+      'primary': ( 'color': #01579b, 'text': $_white-text ),
+      'light': ( 'color': #4f83cc, 'text': $_black-text ),
+      'dark': ( 'color': #002f6c, 'text': $_white-text )
+    ),
+    A100: (
+      'primary': ( 'color': #80d8ff, 'text': $_black-text ),
+      'light': ( 'color': #b5ffff, 'text': $_black-text ),
+      'dark': ( 'color': #49a7cc, 'text': $_black-text )
+    ),
+    A200: (
+      'primary': ( 'color': #40c4ff, 'text': $_black-text ),
+      'light': ( 'color': #82f7ff, 'text': $_black-text ),
+      'dark': ( 'color': #0094cc, 'text': $_black-text )
+    ),
+    A400: (
+      'primary': ( 'color': #00b0ff, 'text': $_black-text ),
+      'light': ( 'color': #69e2ff, 'text': $_black-text ),
+      'dark': ( 'color': #0081cb, 'text': $_black-text )
+    ),
+    A700: (
+      'primary': ( 'color': #0091ea, 'text': $_black-text ),
+      'light': ( 'color': #64c1ff, 'text': $_black-text ),
+      'dark': ( 'color': #0064b7, 'text': $_white-text )
+    )
+  ),
+  'cyan': (
+    50: (
+      'primary': ( 'color': #e0f7fa, 'text': $_black-text ),
+      'light': ( 'color': #ffffff, 'text': $_black-text ),
+      'dark': ( 'color': #aec4c7, 'text': $_black-text )
+    ),
+    100: (
+      'primary': ( 'color': #b2ebf2, 'text': $_black-text ),
+      'light': ( 'color': #e5ffff, 'text': $_black-text ),
+      'dark': ( 'color': #81b9bf, 'text': $_black-text )
+    ),
+    200: (
+      'primary': ( 'color': #80deea, 'text': $_black-text ),
+      'light': ( 'color': #b4ffff, 'text': $_black-text ),
+      'dark': ( 'color': #4bacb8, 'text': $_black-text )
+    ),
+    300: (
+      'primary': ( 'color': #4dd0e1, 'text': $_black-text ),
+      'light': ( 'color': #88ffff, 'text': $_black-text ),
+      'dark': ( 'color': #009faf, 'text': $_black-text )
+    ),
+    400: (
+      'primary': ( 'color': #26c6da, 'text': $_black-text ),
+      'light': ( 'color': #6ff9ff, 'text': $_black-text ),
+      'dark': ( 'color': #0095a8, 'text': $_black-text )
+    ),
+    500: (
+      'primary': ( 'color': #00bcd4, 'text': $_black-text ),
+      'light': ( 'color': #62efff, 'text': $_black-text ),
+      'dark': ( 'color': #008ba3, 'text': $_black-text )
+    ),
+    600: (
+      'primary': ( 'color': #00acc1, 'text': $_black-text ),
+      'light': ( 'color': #5ddef4, 'text': $_black-text ),
+      'dark': ( 'color': #007c91, 'text': $_white-text )
+    ),
+    700: (
+      'primary': ( 'color': #0097a7, 'text': $_black-text ),
+      'light': ( 'color': #56c8d8, 'text': $_black-text ),
+      'dark': ( 'color': #006978, 'text': $_white-text )
+    ),
+    800: (
+      'primary': ( 'color': #00838f, 'text': $_white-text ),
+      'light': ( 'color': #4fb3bf, 'text': $_black-text ),
+      'dark': ( 'color': #005662, 'text': $_white-text )
+    ),
+    900: (
+      'primary': ( 'color': #006064, 'text': $_white-text ),
+      'light': ( 'color': #428e92, 'text': $_black-text ),
+      'dark': ( 'color': #00363a, 'text': $_white-text )
+    ),
+    A100: (
+      'primary': ( 'color': #84ffff, 'text': $_black-text ),
+      'light': ( 'color': #baffff, 'text': $_black-text ),
+      'dark': ( 'color': #4bcbcc, 'text': $_black-text )
+    ),
+    A200: (
+      'primary': ( 'color': #18ffff, 'text': $_black-text ),
+      'light': ( 'color': #76ffff, 'text': $_black-text ),
+      'dark': ( 'color': #00cbcc, 'text': $_black-text )
+    ),
+    A400: (
+      'primary': ( 'color': #00e5ff, 'text': $_black-text ),
+      'light': ( 'color': #6effff, 'text': $_black-text ),
+      'dark': ( 'color': #00b2cc, 'text': $_black-text )
+    ),
+    A700: (
+      'primary': ( 'color': #00b8d4, 'text': $_black-text ),
+      'light': ( 'color': #62ebff, 'text': $_black-text ),
+      'dark': ( 'color': #0088a3, 'text': $_black-text )
+    )
+  ),
+  'teal': (
+    50: (
+      'primary': ( 'color': #e0f2f1, 'text': $_black-text ),
+      'light': ( 'color': #ffffff, 'text': $_black-text ),
+      'dark': ( 'color': #aebfbe, 'text': $_black-text )
+    ),
+    100: (
+      'primary': ( 'color': #b2dfdb, 'text': $_black-text ),
+      'light': ( 'color': #e5ffff, 'text': $_black-text ),
+      'dark': ( 'color': #82ada9, 'text': $_black-text )
+    ),
+    200: (
+      'primary': ( 'color': #80cbc4, 'text': $_black-text ),
+      'light': ( 'color': #b2fef7, 'text': $_black-text ),
+      'dark': ( 'color': #4f9a94, 'text': $_black-text )
+    ),
+    300: (
+      'primary': ( 'color': #4db6ac, 'text': $_black-text ),
+      'light': ( 'color': #82e9de, 'text': $_black-text ),
+      'dark': ( 'color': #00867d, 'text': $_black-text )
+    ),
+    400: (
+      'primary': ( 'color': #26a69a, 'text': $_black-text ),
+      'light': ( 'color': #64d8cb, 'text': $_black-text ),
+      'dark': ( 'color': #00766c, 'text': $_white-text )
+    ),
+    500: (
+      'primary': ( 'color': #009688, 'text': $_black-text ),
+      'light': ( 'color': #52c7b8, 'text': $_black-text ),
+      'dark': ( 'color': #00675b, 'text': $_white-text )
+    ),
+    600: (
+      'primary': ( 'color': #00897b, 'text': $_black-text ),
+      'light': ( 'color': #4ebaaa, 'text': $_black-text ),
+      'dark': ( 'color': #005b4f, 'text': $_white-text )
+    ),
+    700: (
+      'primary': ( 'color': #00796b, 'text': $_white-text ),
+      'light': ( 'color': #48a999, 'text': $_black-text ),
+      'dark': ( 'color': #004c40, 'text': $_white-text )
+    ),
+    800: (
+      'primary': ( 'color': #00695c, 'text': $_white-text ),
+      'light': ( 'color': #439889, 'text': $_black-text ),
+      'dark': ( 'color': #003d33, 'text': $_white-text )
+    ),
+    900: (
+      'primary': ( 'color': #004d40, 'text': $_white-text ),
+      'light': ( 'color': #39796b, 'text': $_white-text ),
+      'dark': ( 'color': #00251a, 'text': $_white-text )
+    ),
+    A100: (
+      'primary': ( 'color': #a7ffeb, 'text': $_black-text ),
+      'light': ( 'color': #dbffff, 'text': $_black-text ),
+      'dark': ( 'color': #75ccb9, 'text': $_black-text )
+    ),
+    A200: (
+      'primary': ( 'color': #64ffda, 'text': $_black-text ),
+      'light': ( 'color': #9effff, 'text': $_black-text ),
+      'dark': ( 'color': #14cba8, 'text': $_black-text )
+    ),
+    A400: (
+      'primary': ( 'color': #1de9b6, 'text': $_black-text ),
+      'light': ( 'color': #6effe8, 'text': $_black-text ),
+      'dark': ( 'color': #00b686, 'text': $_black-text )
+    ),
+    A700: (
+      'primary': ( 'color': #00bfa5, 'text': $_black-text ),
+      'light': ( 'color': #5df2d6, 'text': $_black-text ),
+      'dark': ( 'color': #008e76, 'text': $_black-text )
+    )
+  ),
+  'green': (
+    50: (
+      'primary': ( 'color': #e8f5e9, 'text': $_black-text ),
+      'light': ( 'color': #ffffff, 'text': $_black-text ),
+      'dark': ( 'color': #b6c2b7, 'text': $_black-text )
+    ),
+    100: (
+      'primary': ( 'color': #c8e6c9, 'text': $_black-text ),
+      'light': ( 'color': #fbfffc, 'text': $_black-text ),
+      'dark': ( 'color': #97b498, 'text': $_black-text )
+    ),
+    200: (
+      'primary': ( 'color': #a5d6a7, 'text': $_black-text ),
+      'light': ( 'color': #d7ffd9, 'text': $_black-text ),
+      'dark': ( 'color': #75a478, 'text': $_black-text )
+    ),
+    300: (
+      'primary': ( 'color': #81c784, 'text': $_black-text ),
+      'light': ( 'color': #b2fab4, 'text': $_black-text ),
+      'dark': ( 'color': #519657, 'text': $_black-text )
+    ),
+    400: (
+      'primary': ( 'color': #66bb6a, 'text': $_black-text ),
+      'light': ( 'color': #98ee99, 'text': $_black-text ),
+      'dark': ( 'color': #338a3e, 'text': $_black-text )
+    ),
+    500: (
+      'primary': ( 'color': #4caf50, 'text': $_black-text ),
+      'light': ( 'color': #80e27e, 'text': $_black-text ),
+      'dark': ( 'color': #087f23, 'text': $_white-text )
+    ),
+    600: (
+      'primary': ( 'color': #43a047, 'text': $_black-text ),
+      'light': ( 'color': #76d275, 'text': $_black-text ),
+      'dark': ( 'color': #00701a, 'text': $_white-text )
+    ),
+    700: (
+      'primary': ( 'color': #388e3c, 'text': $_black-text ),
+      'light': ( 'color': #6abf69, 'text': $_black-text ),
+      'dark': ( 'color': #00600f, 'text': $_white-text )
+    ),
+    800: (
+      'primary': ( 'color': #2e7d32, 'text': $_white-text ),
+      'light': ( 'color': #60ad5e, 'text': $_black-text ),
+      'dark': ( 'color': #005005, 'text': $_white-text )
+    ),
+    900: (
+      'primary': ( 'color': #1b5e20, 'text': $_white-text ),
+      'light': ( 'color': #4c8c4a, 'text': $_black-text ),
+      'dark': ( 'color': #003300, 'text': $_white-text )
+    ),
+    A100: (
+      'primary': ( 'color': #b9f6ca, 'text': $_black-text ),
+      'light': ( 'color': #ecfffd, 'text': $_black-text ),
+      'dark': ( 'color': #88c399, 'text': $_black-text )
+    ),
+    A200: (
+      'primary': ( 'color': #69f0ae, 'text': $_black-text ),
+      'light': ( 'color': #9fffe0, 'text': $_black-text ),
+      'dark': ( 'color': #2bbd7e, 'text': $_black-text )
+    ),
+    A400: (
+      'primary': ( 'color': #00e676, 'text': $_black-text ),
+      'light': ( 'color': #66ffa6, 'text': $_black-text ),
+      'dark': ( 'color': #00b248, 'text': $_black-text )
+    ),
+    A700: (
+      'primary': ( 'color': #00c853, 'text': $_black-text ),
+      'light': ( 'color': #5efc82, 'text': $_black-text ),
+      'dark': ( 'color': #009624, 'text': $_black-text )
+    )
+  ),
+  'light-green': (
+    50: (
+      'primary': ( 'color': #f1f8e9, 'text': $_black-text ),
+      'light': ( 'color': #ffffff, 'text': $_black-text ),
+      'dark': ( 'color': #bec5b7, 'text': $_black-text )
+    ),
+    100: (
+      'primary': ( 'color': #dcedc8, 'text': $_black-text ),
+      'light': ( 'color': #fffffb, 'text': $_black-text ),
+      'dark': ( 'color': #aabb97, 'text': $_black-text )
+    ),
+    200: (
+      'primary': ( 'color': #c5e1a5, 'text': $_black-text ),
+      'light': ( 'color': #f8ffd7, 'text': $_black-text ),
+      'dark': ( 'color': #94af76, 'text': $_black-text )
+    ),
+    300: (
+      'primary': ( 'color': #aed581, 'text': $_black-text ),
+      'light': ( 'color': #e1ffb1, 'text': $_black-text ),
+      'dark': ( 'color': #7da453, 'text': $_black-text )
+    ),
+    400: (
+      'primary': ( 'color': #9ccc65, 'text': $_black-text ),
+      'light': ( 'color': #cfff95, 'text': $_black-text ),
+      'dark': ( 'color': #6b9b37, 'text': $_black-text )
+    ),
+    500: (
+      'primary': ( 'color': #8bc34a, 'text': $_black-text ),
+      'light': ( 'color': #bef67a, 'text': $_black-text ),
+      'dark': ( 'color': #5a9216, 'text': $_black-text )
+    ),
+    600: (
+      'primary': ( 'color': #7cb342, 'text': $_black-text ),
+      'light': ( 'color': #aee571, 'text': $_black-text ),
+      'dark': ( 'color': #4b830d, 'text': $_white-text )
+    ),
+    700: (
+      'primary': ( 'color': #689f38, 'text': $_black-text ),
+      'light': ( 'color': #99d066, 'text': $_black-text ),
+      'dark': ( 'color': #387002, 'text': $_white-text )
+    ),
+    800: (
+      'primary': ( 'color': #558b2f, 'text': $_black-text ),
+      'light': ( 'color': #85bb5c, 'text': $_black-text ),
+      'dark': ( 'color': #255d00, 'text': $_white-text )
+    ),
+    900: (
+      'primary': ( 'color': #33691e, 'text': $_white-text ),
+      'light': ( 'color': #629749, 'text': $_black-text ),
+      'dark': ( 'color': #003d00, 'text': $_white-text )
+    ),
+    A100: (
+      'primary': ( 'color': #ccff90, 'text': $_black-text ),
+      'light': ( 'color': #ffffc2, 'text': $_black-text ),
+      'dark': ( 'color': #99cc60, 'text': $_black-text )
+    ),
+    A200: (
+      'primary': ( 'color': #b2ff59, 'text': $_black-text ),
+      'light': ( 'color': #e7ff8c, 'text': $_black-text ),
+      'dark': ( 'color': #7ecb20, 'text': $_black-text )
+    ),
+    A400: (
+      'primary': ( 'color': #76ff03, 'text': $_black-text ),
+      'light': ( 'color': #b0ff57, 'text': $_black-text ),
+      'dark': ( 'color': #32cb00, 'text': $_black-text )
+    ),
+    A700: (
+      'primary': ( 'color': #64dd17, 'text': $_black-text ),
+      'light': ( 'color': #9cff57, 'text': $_black-text ),
+      'dark': ( 'color': #1faa00, 'text': $_black-text )
+    )
+  ),
+  'lime': (
+    50: (
+      'primary': ( 'color': #f9fbe7, 'text': $_black-text ),
+      'light': ( 'color': #ffffff, 'text': $_black-text ),
+      'dark': ( 'color': #c6c8b5, 'text': $_black-text )
+    ),
+    100: (
+      'primary': ( 'color': #f0f4c3, 'text': $_black-text ),
+      'light': ( 'color': #fffff6, 'text': $_black-text ),
+      'dark': ( 'color': #bdc192, 'text': $_black-text )
+    ),
+    200: (
+      'primary': ( 'color': #e6ee9c, 'text': $_black-text ),
+      'light': ( 'color': #ffffce, 'text': $_black-text ),
+      'dark': ( 'color': #b3bc6d, 'text': $_black-text )
+    ),
+    300: (
+      'primary': ( 'color': #dce775, 'text': $_black-text ),
+      'light': ( 'color': #ffffa6, 'text': $_black-text ),
+      'dark': ( 'color': #a8b545, 'text': $_black-text )
+    ),
+    400: (
+      'primary': ( 'color': #d4e157, 'text': $_black-text ),
+      'light': ( 'color': #ffff89, 'text': $_black-text ),
+      'dark': ( 'color': #a0af22, 'text': $_black-text )
+    ),
+    500: (
+      'primary': ( 'color': #cddc39, 'text': $_black-text ),
+      'light': ( 'color': #ffff6e, 'text': $_black-text ),
+      'dark': ( 'color': #99aa00, 'text': $_black-text )
+    ),
+    600: (
+      'primary': ( 'color': #c0ca33, 'text': $_black-text ),
+      'light': ( 'color': #f5fd67, 'text': $_black-text ),
+      'dark': ( 'color': #8c9900, 'text': $_black-text )
+    ),
+    700: (
+      'primary': ( 'color': #afb42b, 'text': $_black-text ),
+      'light': ( 'color': #e4e65e, 'text': $_black-text ),
+      'dark': ( 'color': #7c8500, 'text': $_black-text )
+    ),
+    800: (
+      'primary': ( 'color': #9e9d24, 'text': $_black-text ),
+      'light': ( 'color': #d2ce56, 'text': $_black-text ),
+      'dark': ( 'color': #6c6f00, 'text': $_white-text )
+    ),
+    900: (
+      'primary': ( 'color': #827717, 'text': $_white-text ),
+      'light': ( 'color': #b4a647, 'text': $_black-text ),
+      'dark': ( 'color': #524c00, 'text': $_white-text )
+    ),
+    A100: (
+      'primary': ( 'color': #f4ff81, 'text': $_black-text ),
+      'light': ( 'color': #ffffb3, 'text': $_black-text ),
+      'dark': ( 'color': #bfcc50, 'text': $_black-text )
+    ),
+    A200: (
+      'primary': ( 'color': #eeff41, 'text': $_black-text ),
+      'light': ( 'color': #ffff78, 'text': $_black-text ),
+      'dark': ( 'color': #b8cc00, 'text': $_black-text )
+    ),
+    A400: (
+      'primary': ( 'color': #c6ff00, 'text': $_black-text ),
+      'light': ( 'color': #fdff58, 'text': $_black-text ),
+      'dark': ( 'color': #90cc00, 'text': $_black-text )
+    ),
+    A700: (
+      'primary': ( 'color': #aeea00, 'text': $_black-text ),
+      'light': ( 'color': #e4ff54, 'text': $_black-text ),
+      'dark': ( 'color': #79b700, 'text': $_black-text )
+    )
+  ),
+  'yellow': (
+    50: (
+      'primary': ( 'color': #fffde7, 'text': $_black-text ),
+      'light': ( 'color': #ffffff, 'text': $_black-text ),
+      'dark': ( 'color': #cccab5, 'text': $_black-text )
+    ),
+    100: (
+      'primary': ( 'color': #fff9c4, 'text': $_black-text ),
+      'light': ( 'color': #fffff7, 'text': $_black-text ),
+      'dark': ( 'color': #cbc693, 'text': $_black-text )
+    ),
+    200: (
+      'primary': ( 'color': #fff59d, 'text': $_black-text ),
+      'light': ( 'color': #ffffcf, 'text': $_black-text ),
+      'dark': ( 'color': #cbc26d, 'text': $_black-text )
+    ),
+    300: (
+      'primary': ( 'color': #fff176, 'text': $_black-text ),
+      'light': ( 'color': #ffffa8, 'text': $_black-text ),
+      'dark': ( 'color': #cabf45, 'text': $_black-text )
+    ),
+    400: (
+      'primary': ( 'color': #ffee58, 'text': $_black-text ),
+      'light': ( 'color': #ffff8b, 'text': $_black-text ),
+      'dark': ( 'color': #c9bc1f, 'text': $_black-text )
+    ),
+    500: (
+      'primary': ( 'color': #ffeb3b, 'text': $_black-text ),
+      'light': ( 'color': #ffff72, 'text': $_black-text ),
+      'dark': ( 'color': #c8b900, 'text': $_black-text )
+    ),
+    600: (
+      'primary': ( 'color': #fdd835, 'text': $_black-text ),
+      'light': ( 'color': #ffff6b, 'text': $_black-text ),
+      'dark': ( 'color': #c6a700, 'text': $_black-text )
+    ),
+    700: (
+      'primary': ( 'color': #fbc02d, 'text': $_black-text ),
+      'light': ( 'color': #fff263, 'text': $_black-text ),
+      'dark': ( 'color': #c49000, 'text': $_black-text )
+    ),
+    800: (
+      'primary': ( 'color': #f9a825, 'text': $_black-text ),
+      'light': ( 'color': #ffd95a, 'text': $_black-text ),
+      'dark': ( 'color': #c17900, 'text': $_black-text )
+    ),
+    900: (
+      'primary': ( 'color': #f57f17, 'text': $_black-text ),
+      'light': ( 'color': #ffb04c, 'text': $_black-text ),
+      'dark': ( 'color': #bc5100, 'text': $_white-text )
+    ),
+    A100: (
+      'primary': ( 'color': #ffff8d, 'text': $_black-text ),
+      'light': ( 'color': #ffffbf, 'text': $_black-text ),
+      'dark': ( 'color': #cacc5d, 'text': $_black-text )
+    ),
+    A200: (
+      'primary': ( 'color': #ffff00, 'text': $_black-text ),
+      'light': ( 'color': #ffff5a, 'text': $_black-text ),
+      'dark': ( 'color': #c7cc00, 'text': $_black-text )
+    ),
+    A400: (
+      'primary': ( 'color': #ffea00, 'text': $_black-text ),
+      'light': ( 'color': #ffff56, 'text': $_black-text ),
+      'dark': ( 'color': #c7b800, 'text': $_black-text )
+    ),
+    A700: (
+      'primary': ( 'color': #ffd600, 'text': $_black-text ),
+      'light': ( 'color': #ffff52, 'text': $_black-text ),
+      'dark': ( 'color': #c7a500, 'text': $_black-text )
+    )
+  ),
+  'amber': (
+    50: (
+      'primary': ( 'color': #fff8e1, 'text': $_black-text ),
+      'light': ( 'color': #ffffff, 'text': $_black-text ),
+      'dark': ( 'color': #ccc5af, 'text': $_black-text )
+    ),
+    100: (
+      'primary': ( 'color': #ffecb3, 'text': $_black-text ),
+      'light': ( 'color': #ffffe5, 'text': $_black-text ),
+      'dark': ( 'color': #cbba83, 'text': $_black-text )
+    ),
+    200: (
+      'primary': ( 'color': #ffe082, 'text': $_black-text ),
+      'light': ( 'color': #ffffb3, 'text': $_black-text ),
+      'dark': ( 'color': #caae53, 'text': $_black-text )
+    ),
+    300: (
+      'primary': ( 'color': #ffd54f, 'text': $_black-text ),
+      'light': ( 'color': #ffff81, 'text': $_black-text ),
+      'dark': ( 'color': #c8a415, 'text': $_black-text )
+    ),
+    400: (
+      'primary': ( 'color': #ffca28, 'text': $_black-text ),
+      'light': ( 'color': #fffd61, 'text': $_black-text ),
+      'dark': ( 'color': #c79a00, 'text': $_black-text )
+    ),
+    500: (
+      'primary': ( 'color': #ffc107, 'text': $_black-text ),
+      'light': ( 'color': #fff350, 'text': $_black-text ),
+      'dark': ( 'color': #c79100, 'text': $_black-text )
+    ),
+    600: (
+      'primary': ( 'color': #ffb300, 'text': $_black-text ),
+      'light': ( 'color': #ffe54c, 'text': $_black-text ),
+      'dark': ( 'color': #c68400, 'text': $_black-text )
+    ),
+    700: (
+      'primary': ( 'color': #ffa000, 'text': $_black-text ),
+      'light': ( 'color': #ffd149, 'text': $_black-text ),
+      'dark': ( 'color': #c67100, 'text': $_black-text )
+    ),
+    800: (
+      'primary': ( 'color': #ff8f00, 'text': $_black-text ),
+      'light': ( 'color': #ffc046, 'text': $_black-text ),
+      'dark': ( 'color': #c56000, 'text': $_black-text )
+    ),
+    900: (
+      'primary': ( 'color': #ff6f00, 'text': $_black-text ),
+      'light': ( 'color': #ffa040, 'text': $_black-text ),
+      'dark': ( 'color': #c43e00, 'text': $_white-text )
+    ),
+    A100: (
+      'primary': ( 'color': #ffe57f, 'text': $_black-text ),
+      'light': ( 'color': #ffffb0, 'text': $_black-text ),
+      'dark': ( 'color': #cab350, 'text': $_black-text )
+    ),
+    A200: (
+      'primary': ( 'color': #ffd740, 'text': $_black-text ),
+      'light': ( 'color': #ffff74, 'text': $_black-text ),
+      'dark': ( 'color': #c8a600, 'text': $_black-text )
+    ),
+    A400: (
+      'primary': ( 'color': #ffc400, 'text': $_black-text ),
+      'light': ( 'color': #fff64f, 'text': $_black-text ),
+      'dark': ( 'color': #c79400, 'text': $_black-text )
+    ),
+    A700: (
+      'primary': ( 'color': #ffab00, 'text': $_black-text ),
+      'light': ( 'color': #ffdd4b, 'text': $_black-text ),
+      'dark': ( 'color': #c67c00, 'text': $_black-text )
+    )
+  ),
+  'iorange': (
+    50: (
+      'primary': ( 'color': #fff3e0, 'text': $_black-text ),
+      'light': ( 'color': #ffffff, 'text': $_black-text ),
+      'dark': ( 'color': #ccc0ae, 'text': $_black-text )
+    ),
+    100: (
+      'primary': ( 'color': #ffe0b2, 'text': $_black-text ),
+      'light': ( 'color': #ffffe4, 'text': $_black-text ),
+      'dark': ( 'color': #cbae82, 'text': $_black-text )
+    ),
+    200: (
+      'primary': ( 'color': #ffcc80, 'text': $_black-text ),
+      'light': ( 'color': #ffffb0, 'text': $_black-text ),
+      'dark': ( 'color': #ca9b52, 'text': $_black-text )
+    ),
+    300: (
+      'primary': ( 'color': #ffb74d, 'text': $_black-text ),
+      'light': ( 'color': #ffe97d, 'text': $_black-text ),
+      'dark': ( 'color': #c88719, 'text': $_black-text )
+    ),
+    400: (
+      'primary': ( 'color': #ffa726, 'text': $_black-text ),
+      'light': ( 'color': #ffd95b, 'text': $_black-text ),
+      'dark': ( 'color': #c77800, 'text': $_black-text )
+    ),
+    500: (
+      'primary': ( 'color': #ff9800, 'text': $_black-text ),
+      'light': ( 'color': #ffc947, 'text': $_black-text ),
+      'dark': ( 'color': #c66900, 'text': $_black-text )
+    ),
+    600: (
+      'primary': ( 'color': #fb8c00, 'text': $_black-text ),
+      'light': ( 'color': #ffbd45, 'text': $_black-text ),
+      'dark': ( 'color': #c25e00, 'text': $_black-text )
+    ),
+    700: (
+      'primary': ( 'color': #f57c00, 'text': $_black-text ),
+      'light': ( 'color': #ffad42, 'text': $_black-text ),
+      'dark': ( 'color': #bb4d00, 'text': $_white-text )
+    ),
+    800: (
+      'primary': ( 'color': #ef6c00, 'text': $_black-text ),
+      'light': ( 'color': #ff9d3f, 'text': $_black-text ),
+      'dark': ( 'color': #b53d00, 'text': $_white-text )
+    ),
+    900: (
+      'primary': ( 'color': #e65100, 'text': $_black-text ),
+      'light': ( 'color': #ff833a, 'text': $_black-text ),
+      'dark': ( 'color': #ac1900, 'text': $_white-text )
+    ),
+    A100: (
+      'primary': ( 'color': #ffd180, 'text': $_black-text ),
+      'light': ( 'color': #ffffb1, 'text': $_black-text ),
+      'dark': ( 'color': #caa052, 'text': $_black-text )
+    ),
+    A200: (
+      'primary': ( 'color': #ffab40, 'text': $_black-text ),
+      'light': ( 'color': #ffdd71, 'text': $_black-text ),
+      'dark': ( 'color': #c77c02, 'text': $_black-text )
+    ),
+    A400: (
+      'primary': ( 'color': #ff9100, 'text': $_black-text ),
+      'light': ( 'color': #ffc246, 'text': $_black-text ),
+      'dark': ( 'color': #c56200, 'text': $_black-text )
+    ),
+    A700: (
+      'primary': ( 'color': #ff6d00, 'text': $_black-text ),
+      'light': ( 'color': #ff9e40, 'text': $_black-text ),
+      'dark': ( 'color': #c43c00, 'text': $_white-text )
+    )
+  ),
+  'deep-orange': (
+    50: (
+      'primary': ( 'color': #fbe9e7, 'text': $_black-text ),
+      'light': ( 'color': #ffffff, 'text': $_black-text ),
+      'dark': ( 'color': #c8b7b5, 'text': $_black-text )
+    ),
+    100: (
+      'primary': ( 'color': #ffccbc, 'text': $_black-text ),
+      'light': ( 'color': #ffffee, 'text': $_black-text ),
+      'dark': ( 'color': #cb9b8c, 'text': $_black-text )
+    ),
+    200: (
+      'primary': ( 'color': #ffab91, 'text': $_black-text ),
+      'light': ( 'color': #ffddc1, 'text': $_black-text ),
+      'dark': ( 'color': #c97b63, 'text': $_black-text )
+    ),
+    300: (
+      'primary': ( 'color': #ff8a65, 'text': $_black-text ),
+      'light': ( 'color': #ffbb93, 'text': $_black-text ),
+      'dark': ( 'color': #c75b39, 'text': $_black-text )
+    ),
+    400: (
+      'primary': ( 'color': #ff7043, 'text': $_black-text ),
+      'light': ( 'color': #ffa270, 'text': $_black-text ),
+      'dark': ( 'color': #c63f17, 'text': $_white-text )
+    ),
+    500: (
+      'primary': ( 'color': #ff5722, 'text': $_black-text ),
+      'light': ( 'color': #ff8a50, 'text': $_black-text ),
+      'dark': ( 'color': #c41c00, 'text': $_white-text )
+    ),
+    600: (
+      'primary': ( 'color': #f4511e, 'text': $_black-text ),
+      'light': ( 'color': #ff844c, 'text': $_black-text ),
+      'dark': ( 'color': #b91400, 'text': $_white-text )
+    ),
+    700: (
+      'primary': ( 'color': #e64a19, 'text': $_black-text ),
+      'light': ( 'color': #ff7d47, 'text': $_black-text ),
+      'dark': ( 'color': #ac0800, 'text': $_white-text )
+    ),
+    800: (
+      'primary': ( 'color': #d84315, 'text': $_black-text ),
+      'light': ( 'color': #ff7543, 'text': $_black-text ),
+      'dark': ( 'color': #9f0000, 'text': $_white-text )
+    ),
+    900: (
+      'primary': ( 'color': #bf360c, 'text': $_white-text ),
+      'light': ( 'color': #f9683a, 'text': $_black-text ),
+      'dark': ( 'color': #870000, 'text': $_white-text )
+    ),
+    A100: (
+      'primary': ( 'color': #ff9e80, 'text': $_black-text ),
+      'light': ( 'color': #ffd0b0, 'text': $_black-text ),
+      'dark': ( 'color': #c96f53, 'text': $_black-text )
+    ),
+    A200: (
+      'primary': ( 'color': #ff6e40, 'text': $_black-text ),
+      'light': ( 'color': #ffa06d, 'text': $_black-text ),
+      'dark': ( 'color': #c53d13, 'text': $_white-text )
+    ),
+    A400: (
+      'primary': ( 'color': #ff3d00, 'text': $_black-text ),
+      'light': ( 'color': #ff7539, 'text': $_black-text ),
+      'dark': ( 'color': #c30000, 'text': $_white-text )
+    ),
+    A700: (
+      'primary': ( 'color': #dd2c00, 'text': $_white-text ),
+      'light': ( 'color': #ff6434, 'text': $_black-text ),
+      'dark': ( 'color': #a30000, 'text': $_white-text )
+    )
+  ),
+  'brown': (
+    50: (
+      'primary': ( 'color': #efebe9, 'text': $_black-text ),
+      'light': ( 'color': #ffffff, 'text': $_black-text ),
+      'dark': ( 'color': #bdb9b7, 'text': $_black-text )
+    ),
+    100: (
+      'primary': ( 'color': #d7ccc8, 'text': $_black-text ),
+      'light': ( 'color': #fffffb, 'text': $_black-text ),
+      'dark': ( 'color': #a69b97, 'text': $_black-text )
+    ),
+    200: (
+      'primary': ( 'color': #bcaaa4, 'text': $_black-text ),
+      'light': ( 'color': #efdcd5, 'text': $_black-text ),
+      'dark': ( 'color': #8c7b75, 'text': $_black-text )
+    ),
+    300: (
+      'primary': ( 'color': #a1887f, 'text': $_black-text ),
+      'light': ( 'color': #d3b8ae, 'text': $_black-text ),
+      'dark': ( 'color': #725b53, 'text': $_white-text )
+    ),
+    400: (
+      'primary': ( 'color': #8d6e63, 'text': $_white-text ),
+      'light': ( 'color': #be9c91, 'text': $_black-text ),
+      'dark': ( 'color': #5f4339, 'text': $_white-text )
+    ),
+    500: (
+      'primary': ( 'color': #795548, 'text': $_white-text ),
+      'light': ( 'color': #a98274, 'text': $_black-text ),
+      'dark': ( 'color': #4b2c20, 'text': $_white-text )
+    ),
+    600: (
+      'primary': ( 'color': #6d4c41, 'text': $_white-text ),
+      'light': ( 'color': #9c786c, 'text': $_black-text ),
+      'dark': ( 'color': #40241a, 'text': $_white-text )
+    ),
+    700: (
+      'primary': ( 'color': #5d4037, 'text': $_white-text ),
+      'light': ( 'color': #8b6b61, 'text': $_white-text ),
+      'dark': ( 'color': #321911, 'text': $_white-text )
+    ),
+    800: (
+      'primary': ( 'color': #4e342e, 'text': $_white-text ),
+      'light': ( 'color': #7b5e57, 'text': $_white-text ),
+      'dark': ( 'color': #260e04, 'text': $_white-text )
+    ),
+    900: (
+      'primary': ( 'color': #3e2723, 'text': $_white-text ),
+      'light': ( 'color': #6a4f4b, 'text': $_white-text ),
+      'dark': ( 'color': #1b0000, 'text': $_white-text )
+    )
+  ),
+  'grey': (
+    50: (
+      'primary': ( 'color': #fafafa, 'text': $_black-text ),
+      'light': ( 'color': #ffffff, 'text': $_black-text ),
+      'dark': ( 'color': #c7c7c7, 'text': $_black-text )
+    ),
+    100: (
+      'primary': ( 'color': #f5f5f5, 'text': $_black-text ),
+      'light': ( 'color': #ffffff, 'text': $_black-text ),
+      'dark': ( 'color': #c2c2c2, 'text': $_black-text )
+    ),
+    200: (
+      'primary': ( 'color': #eeeeee, 'text': $_black-text ),
+      'light': ( 'color': #ffffff, 'text': $_black-text ),
+      'dark': ( 'color': #bcbcbc, 'text': $_black-text )
+    ),
+    300: (
+      'primary': ( 'color': #e0e0e0, 'text': $_black-text ),
+      'light': ( 'color': #ffffff, 'text': $_black-text ),
+      'dark': ( 'color': #aeaeae, 'text': $_black-text )
+    ),
+    400: (
+      'primary': ( 'color': #bdbdbd, 'text': $_black-text ),
+      'light': ( 'color': #efefef, 'text': $_black-text ),
+      'dark': ( 'color': #8d8d8d, 'text': $_black-text )
+    ),
+    500: (
+      'primary': ( 'color': #9e9e9e, 'text': $_black-text ),
+      'light': ( 'color': #cfcfcf, 'text': $_black-text ),
+      'dark': ( 'color': #707070, 'text': $_white-text )
+    ),
+    600: (
+      'primary': ( 'color': #757575, 'text': $_white-text ),
+      'light': ( 'color': #a4a4a4, 'text': $_black-text ),
+      'dark': ( 'color': #494949, 'text': $_white-text )
+    ),
+    700: (
+      'primary': ( 'color': #616161, 'text': $_white-text ),
+      'light': ( 'color': #8e8e8e, 'text': $_black-text ),
+      'dark': ( 'color': #373737, 'text': $_white-text )
+    ),
+    800: (
+      'primary': ( 'color': #424242, 'text': $_white-text ),
+      'light': ( 'color': #6d6d6d, 'text': $_white-text ),
+      'dark': ( 'color': #1b1b1b, 'text': $_white-text )
+    ),
+    900: (
+      'primary': ( 'color': #212121, 'text': $_white-text ),
+      'light': ( 'color': #484848, 'text': $_white-text ),
+      'dark': ( 'color': #000000, 'text': $_white-text )
+    )
+  ),
+  'blue-grey': (
+    50: (
+      'primary': ( 'color': #eceff1, 'text': $_black-text ),
+      'light': ( 'color': #ffffff, 'text': $_black-text ),
+      'dark': ( 'color': #babdbe, 'text': $_black-text )
+    ),
+    100: (
+      'primary': ( 'color': #cfd8dc, 'text': $_black-text ),
+      'light': ( 'color': #ffffff, 'text': $_black-text ),
+      'dark': ( 'color': #9ea7aa, 'text': $_black-text )
+    ),
+    200: (
+      'primary': ( 'color': #b0bec5, 'text': $_black-text ),
+      'light': ( 'color': #e2f1f8, 'text': $_black-text ),
+      'dark': ( 'color': #808e95, 'text': $_black-text )
+    ),
+    300: (
+      'primary': ( 'color': #90a4ae, 'text': $_black-text ),
+      'light': ( 'color': #c1d5e0, 'text': $_black-text ),
+      'dark': ( 'color': #62757f, 'text': $_white-text )
+    ),
+    400: (
+      'primary': ( 'color': #78909c, 'text': $_black-text ),
+      'light': ( 'color': #a7c0cd, 'text': $_black-text ),
+      'dark': ( 'color': #4b636e, 'text': $_white-text )
+    ),
+    500: (
+      'primary': ( 'color': #607d8b, 'text': $_black-text ),
+      'light': ( 'color': #8eacbb, 'text': $_black-text ),
+      'dark': ( 'color': #34515e, 'text': $_white-text )
+    ),
+    600: (
+      'primary': ( 'color': #546e7a, 'text': $_white-text ),
+      'light': ( 'color': #819ca9, 'text': $_black-text ),
+      'dark': ( 'color': #29434e, 'text': $_white-text )
+    ),
+    700: (
+      'primary': ( 'color': #455a64, 'text': $_white-text ),
+      'light': ( 'color': #718792, 'text': $_black-text ),
+      'dark': ( 'color': #1c313a, 'text': $_white-text )
+    ),
+    800: (
+      'primary': ( 'color': #37474f, 'text': $_white-text ),
+      'light': ( 'color': #62727b, 'text': $_white-text ),
+      'dark': ( 'color': #102027, 'text': $_white-text )
+    ),
+    900: (
+      'primary': ( 'color': #263238, 'text': $_white-text ),
+      'light': ( 'color': #4f5b62, 'text': $_white-text ),
+      'dark': ( 'color': #000a12, 'text': $_white-text )
+    )
+  )
+);
+
+////////////////////////////////////////
+// INTERNAL FUNCTIONS
+////////////////////////////////////////
+
+// Gets the color data matching to the given properties.
+//  - $color-name: string, name of the color palette
+//  - $variant: number, variant value of the color (from 50 to 900, or A100 to A700)
+//  - $type: string, type of the color (primary, light or dark)
+// Returns the found color data (color and text info), otherwise null.
+@function _get-color-components($color-name, $variant: 500, $type: 'primary') {
+  $color: map-get($_palettes, $color-name);
+  @if($color != null) {
+    $color: map-get($color, $variant);
+    @if($color != null) {
+      @return map-get($color, $type);
+    }
+  }
+  @return null;
+}
+
+////////////////////////////////////////
+// PUBLIC FUNCTIONS
+////////////////////////////////////////
+
+// Gets the color matching to the given properties.
+//  - $color-name: string, name of the color palette
+//  - $variant: number, variant value of the color (from 50 to 900, or A100 to A700)
+//  - $type: string, type of the color (primary, light or dark)
+// Returns the found color, otherwise null.
+@function get-color($color-name, $variant: 500, $type: 'primary') {
+  $color: _get-color-components($color-name, $variant, $type);
+  @return if($color != null, map-get($color, 'color'), null);
+}
+
+// Gets the text color for the given color properties.
+//  - $color-name: string, name of the color palette
+//  - $variant: number, variant value of the color (from 50 to 900, or A100 to A700)
+//  - $type: string, type of the color (primary, light or dark)
+//  - $emphasis: string, text emphasis (high, medium or disabled)
+// Returns the found color, otherwise null. Note that if the given emphasis is not valid, 'high' emphasis will be used.
+
+@function get-text-color($color-name, $variant: 500, $type: 'primary', $emphasis: 'high') {
+  $text-data: _get-color-components($color-name, $variant, $type);
+  // If color and emphasis data exists
+  @if($text-data != null) {
+    $text-data: map-get($text-data, 'text');
+
+    $color: map-get($text-data, 'color');
+    $emphasis: map-get($text-data, 'emphasis-alpha');
+    // Get the alpha matching to the given emphasis
+    $alpha: map-get($text-data, $emphasis);
+    @if($alpha == null) {
+      // If the given emphasis is invalid, use "high" by default
+      $alpha: map-get($emphasis, 'high');
+    }
+    @return rgba($color, $alpha);
+  }
+  @return null;
+}
+
+////////////////////////////////////////
+// MIXINS
+////////////////////////////////////////
+
+// Applies background-color and color properties, using the given color setup.
+//  - $color-name: string, name of the color palette
+//  - $variant: number, variant value of the color (from 50 to 900, or A100 to A700)
+//  - $type: string, type of the color (primary, light or dark)
+//  - $text-emphasis: string, text emphasis (high, medium or disabled)
+@mixin color($color-name, $variant: 500, $type: 'primary', $text-emphasis: 'high') {
+  background-color: get-color($color-name, $variant, $type);
+  color: get-text-color($color-name, $variant, $type, $text-emphasis);
+}
+
+// Applies background-color property, using the given color setup.
+//  - $color-name: string, name of the color palette
+//  - $variant: number, variant value of the color (from 50 to 900, or A100 to A700)
+//  - $type: string, type of the color (primary, light or dark)
+@mixin bg-color($color-name, $variant: 500, $type: 'primary') {
+  background-color: get-color($color-name, $variant, $type);
+}
+
+// Applies color property, using the given color setup.
+//  - $color-name: string, name of the color palette
+//  - $variant: number, variant value of the color (from 50 to 900, or A100 to A700)
+//  - $type: string, type of the color (primary, light or dark)
+//  - $text-emphasis: string, text emphasis (high, medium or disabled)
+@mixin text-color($color-name, $variant: 500, $type: 'primary', $text-emphasis: 'high') {
+  color: get-text-color($color-name, $variant, $type, $text-emphasis);
+}
+
+// Includes shortcut classes to apply color of a given palette.
+//  - $color-name: string, name of the color palette
+//  - $type: string, type of the color (primary, light or dark)
+@mixin make-palette($color-name, $type: 'primary') {
+  $palette: map-get($_palettes, $color-name);
+  @if($palette != null) {
+
+    .#{$color-name} {
+      @include color($color-name, 500, $type);
+    };
+
+    .bg-#{$color-name} {
+      @include bg-color($color-name, 500, $type);
+    };
+
+    .text-#{$color-name} {
+      @include text-color($color-name, 500, $type);
+    };
+
+    @each $color-variant, $color-variant-data in $palette {
+      .#{$color-name}-#{$color-variant} {
+        @include color($color-name, $color-variant, $type);
+      };
+
+      .bg-#{$color-name}-#{$color-variant} {
+        @include bg-color($color-name, $color-variant, $type);
+      };
+
+      .text-#{$color-name}-#{$color-variant} {
+        @include text-color($color-name, $color-variant, $type);
+      };
+    }
+  }
+}
